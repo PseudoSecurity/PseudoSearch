@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://use.typekit.net/ivl3dou.css">
+    <head>
+        <link rel="icon" type="image/x-icon" href="PseudoLogo.png">
+        <title>PseudoSearch</title>
+    </head>
+    <body>
+        <style>
+            @keyframes suckit {
+                0%   {background: rgb(0, 0, 0);}
+                100% {background: rgb(255, 255, 255); color: #191919;}
+            }
+            @keyframes suckits {
+                0%   {}
+                100% {background: rgb(0, 0, 0); color: #000000;}
+            }
+            ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+  position: fixed;
+}
+.content{
+    padding-top: 20%;
+}
+.PseudoText{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+ul li {
+    border-radius: 5%;
+  float: left;
+}
+ul input{
+    left: 30%;
+}
+ul li a {
+    font-family: 'bicyclette',sans-serif;
+font-weight: 400;
+font-style: normal;
+    font-size: 15px;
+    border-radius: 5%;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  animation: suckit .7s;
+  background: rgb(255, 255, 255);
+  color: #000000;
+}
+            html {
+                color: white;
+                background-color: black;
+                font-family: monospace;
+                text-align: center;
+            }
+            button {
+                background-color: rgb(0, 0, 0);
+                color: rgb(216, 216, 216);
+                border-radius: 5px;
+                padding: 10px ;
+                border: rgb(0, 0, 0) solid 1px;
+                font-family: 'bicyclette',sans-serif;
+            }
+            button::before {
+                background-color: rgb(0, 0, 0);
+                color: rgb(216, 216, 216);
+            }
+            button::after {
+                background-color: rgb(255, 255, 255);
+                color: rgb(0, 0, 0);
+            }
+            button:hover{
+                animation: suckit .7s;
+                background: rgb(255, 255, 255);
+                color: #1b1b1b;
+            }
+            button:hover::after{
+                animation: suckits .7s;
+                background: rgb(0, 0, 0);
+                color: #ffffff;
+            }
+            input{
+               background-color: rgb(16, 16, 16); 
+               color: rgb(255, 255, 255);
+               font-family: helvetica;
+               padding: 7px;
+               width: 200px;
+               border: rgba(0, 0, 0, 0) ;
+               border-radius: 5px;
+            }
+            input::selection{
+                border: #131313;
+            }
+            h1{
+                font-family: "bicyclette", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+            a{
+                font-size: 17px;
+                font-family: "bicyclette", sans-serif;
+            }
+        </style>
+        <script>
+        function create() {
+            var url = document.getElementById('input').value;
+            var win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+        }
+        </script>
+<ul>
+    <li><a href="#home" class="active">Github</a></li>
+    <li><a href="#news">Source</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+    </body>
+    <div class="content">
+    <h1>PseudoSearch</h1>
+    <input type="text" placeholder="https://google.com" id='input' autofocus>
+    <button class="Search" onclick='create()'>Create</button>
+</div>
+</html>
