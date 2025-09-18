@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://use.typekit.net/ivl3dou.css">
+    <head>
+        <link rel="icon" type="image/x-icon" href="PseudoLogo.png">
+        <title>PseudoSearch</title>
+    </head>
+    <body>
+        <style>
+
+            img{
+                animation-delay: 2s;
+                animation: suckits 5s;
+            }
+            @keyframes suckit {
+                from {background: rgb(0, 0, 0);}
+                to {background: rgb(255, 255, 255); color: #191919;}
+            }
+            ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+  position: fixed;
+}
+button{
+    background-color:rgb(16, 16, 16); 
+    color: white;
+    border: solid, transparent;
+    font-family: monospace;
+    padding: .6%;
+    font-family: mundial-narrow-variable;
+    font-variation-settings: "wght" 541;
+}
+.PseudoText{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.content{
+    padding-top: 50px;
+}
+ul li {
+    left: 20%;
+    padding-left: 0px;
+    border-radius: 5%;
+  float: left;
+}
+ul input{
+    left: -20%;
+}
+ul li a {
+background-color: #0b0b0bab;
+    font-family: deuterium-variable, sans-serif;
+    font-variation-settings: "wght" 400;
+    font-size: 15px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+.animated-button{
+  transition: background-color 0.2s ease-in-out; /* Animates background-color over 0.5s */
+}
+
+.animated-button:hover {
+  background-color: #ffffff; /* Background color on hover */
+  color: #000000;
+}
+ul li a:hover {
+  background: rgb(255, 255, 255);
+  color: #000000;
+}
+::selection {
+  background-color: rgb(255, 255, 255); /* Sets the background color of the selected text */
+  color: black;            /* Sets the color of the selected text itself */
+}
+
+/* For older WebKit browsers (like Safari) */
+::-webkit-selection {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+            html {
+                color: white;
+                background-color: black;
+                font-family: monospace;
+                text-align: center;
+            }
+            .Search{
+  transition: background-color 0.1s ease-in-out; /* Animates background-color over 0.5s */
+}
+
+.Search::selection {
+  background-color: #ffffff; /* Background color on hover */
+  color: #000000;
+}
+            input:focus{
+                outline: none;
+                animation: suckit .5s;
+                background-color: rgb(255, 255, 255);
+                color: #000000;
+            } 
+            input:focus::selection{
+              background-color: #000000;
+              color: #ffffff;
+            } 
+            input::after{
+                transition: suckit   2s ease-in-out;
+            }
+            input{
+            transition: suckit   2s ease-in-out;
+               background-color: rgb(16, 16, 16); 
+               color: rgb(255, 255, 255);
+               font-family: deuterium-variable, sans-serif;
+               padding: 10px;
+               width: 500px;
+               border: rgb(0, 0, 0), solid ;
+            }
+            h1{
+                font-family: deuterium-variable,sans-serif;
+                font-variation-settings: "wght" 400;
+                font-size: 500%;
+                padding: 0%;
+
+            }
+            a{
+                font-size: 17px;
+                font-family: "bicyclette", sans-serif;
+            }
+        </style>
+        <script>
+            const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    cards.forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+  });
+});
+
+            // Get the input field
+var input = document.getElementById("input");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("srch").click();
+  }
+});
+        function frame() {
+            var url = document.getElementById('input').value;
+            var win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+        }
+        </script>
+<ul>
+    <li><a href="#home" class="animated-button">Github</a></li>
+    <li style="padding-left: 5px;"><a href="#news" class="animated-button">Source</a></li>
+    <li style="padding-left: 5px;"><a href="#contact" class="animated-button">Contact</a></li>
+</ul>
+    </body>
+    <div class="content">
+    <img style="size: 1px;" src="PseudoLogo .png">
+    <h1>PseudoSearch</h1>
+    <input class="Search" value="https://www.google.com" type="text" placeholder="https://google.com" id='input' autofocus>
+    <button class="animated-button" onclick='frame()'>Enter</button>
+</div>
+</html>
