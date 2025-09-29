@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://use.typekit.net/ivl3dou.css">
+    <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="icon" type="image/x-icon" href="PseudoLogo.png">
+        <title>PseudoSearch</title>
+    </head>
+    <body>
+        <style>
+
+            img{
+                animation-delay: 2s;
+                animation: suckits 5s;
+            }
+            @keyframes suckit {
+                from {background: rgb(0, 0, 0);}
+                to {background: rgb(255, 255, 255); color: #191919;}
+            }
+            ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #00000000;
+  position: fixed;
+}
+button{
+    background-color:rgb(16, 16, 16); 
+    color: white;
+    border-radius: 1%;
+    border: solid, transparent;
+    font-family: monospace;
+    padding: .6%;
+    font-family: mundial-narrow-variable;
+    font-variation-settings: "wght" 541;
+}
+.PseudoText{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.content{
+    padding-top: 50px;
+}
+ul li {
+    left: 20%;
+    padding-left: 0px;
+    border-radius: 5%;
+  float: left;
+}
+ul input{
+    left: -20%;
+}
+ul li a {
+  opacity: 80%;
+  border-radius: 3%;
+background-color: #151515ab;
+    font-family: deuterium-variable, sans-serif;
+    font-variation-settings: "wght" 400;
+    font-size: 15px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+.animated-button{
+  border-radius: 3%;
+  opacity: 80%;
+  transition: background-color 0.2s ease-in-out; /* Animates background-color over 0.5s */
+}
+
+.animated-button:hover {
+  opacity: 90%;
+  background-color: #ffffff; /* Background color on hover */
+  color: #000000;
+}
+ul li a:hover {
+  background: rgb(255, 255, 255);
+  color: #000000;
+}
+::selection {
+  background-color: rgb(255, 255, 255); /* Sets the background color of the selected text */
+  color: rgb(0, 0, 0);            /* Sets the color of the selected text itself */
+}
+
+/* For older WebKit browsers (like Safari) */
+::-webkit-selection {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+            html {
+              border-radius: 5%;
+              background-size:120%;
+              background-position: center;
+              background-position-y: 30%;
+                color: white;
+                background-color: black;
+                background-image: url("PseudoIcon.png");
+                font-family: monospace;
+                text-align: center;
+            }
+            .Search{
+  transition: background-color 0.1s ease-in-out; /* Animates background-color over 0.5s */
+  border: #00000000;
+}
+
+.Search::selection {
+  background-color: #000000; /* Background color on hover */
+  color: #000000;
+}
+            input:focus{
+                outline: none;
+                animation: suckit .5s;
+                background-color: rgb(255, 255, 255);
+                color: #000000;
+            } 
+            input:focus::selection{
+              background-color: #000000;
+              color: #ffffff;
+            } 
+            input::after{
+                transition: suckit   2s ease-in-out;
+            }
+            input{
+              filter: blur(2px);
+              opacity: 80%;
+            transition: suckit   2s ease-in-out;
+               background-color: rgb(16, 16, 16); 
+               color: rgb(255, 255, 255);
+               font-family: deuterium-variable, sans-serif;
+               padding: 10px;
+               width: 500px;
+
+            }
+            h1{
+              opacity: 90%;
+                font-family: deuterium-variable,sans-serif;
+                font-variation-settings: "wght" 500;
+                font-size: 700%;
+                padding: 0%;
+
+            }
+            a{
+                font-size: 17px;
+                font-family: "bicyclette", sans-serif;
+            }
+        </style>
+<script>
+  let key = event.key;
+
+if (key == "Enter") {
+  frame();
+}
+
+        function frame() {
+            var url = document.getElementById('input').value;
+            var win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var PseudoFrame = win.document.createElement('iframe');
+            PseudoFrame.style.width = '100%';
+            PseudoFrame.style.height = '100%';
+            PseudoFrame.src = url;
+            win.document.body.appendChild(PseudoFrame);
+        }
+</script>
+<ul>
+    <li><a href="#home" class="animated-button">Github</a></li>
+    <li style="padding-left: 5px;"><a href="#news" class="animated-button">Source</a></li>
+    <li style="padding-left: 5px;"><a href="#contact" class="animated-button">Contact</a></li>
+</ul>
+    </body>
+    <div class="content">
+    <h1>PseudoSearch</h1>
+    <input onkeypress="Listen()" class="Search" value="https://www.google.com" type="text" placeholder="https://google.com" id='input' autofocus>
+    <button id="srcbtn" class="animated-button" onclick='frame()'><a style="padding-left: 3px; padding-right: 3px;" class="fa fa-search"></a></button>
+</div>
+</html>
